@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-light-brown: rgba(198, 155, 123, 1);
+  --color-dark-brown: rgba(130, 111, 102, 1);
+  --color-neutral: rgba(255, 255, 255, 1);
+  --color-neutral-400: rgba(202, 201, 207, 1);
+  --color-neutral-500: rgba(166, 166, 168, 1);
+  --color-neutral-600: rgba(128, 127, 134, 1);
+  --color-neutral-700: rgba(89, 86, 103, 1);
+  --color-neutral-800: rgba(58, 56, 69, 1);
+
+  --shadow-header: 0 2px 6px rgba(89, 86, 103, 0.12);
+  --shadow-navbar: 0 -2px 6px rgba(89, 86, 103, 0.12);
+
+  --font-inter: "Inter", sans-serif;
+  --font-garamond: "EB Garamond", serif;
+}
+
+body {
+  @apply font-inter;
+}
+.active {
+  @apply text-light-brown;
+}
+
+/* custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-light-brown) transparent;
+  border-radius: 0;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-light-brown);
+  border-radius: 0px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-light-brown);
+  border-radius: 0px;
+}
+
+/* hide control button >> input["number"] */
+.hide-up-down-input-number::-webkit-outer-spin-button,
+.hide-up-down-input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.hide-up-down-input-number {
+  -moz-appearance: textfield;
+}
+.hide-up-down-input-number:focus {
+  outline: none;
+}
+
+/* responsive pagation >> Products comp. */
+@media (max-width: 640px) {
+  .pagination {
+    margin-bottom: 6rem !important;
+  }
+}
+.pagination .page-link {
+  color: var(--color-light-brown) !important;
+}
+.pagination .active > .page-link {
+  color: var(--color-neutral) !important;
+  background-color: var(--color-light-brown) !important;
+  border-color: var(--color-light-brown) !important;
+}
+.pagination li.page-item .disabled {
+  color: var(--color-neutral-800) !important;
+}
+
+/* react multi carousel >> ProductDetails comp. */
+.product-details.react-multi-carousel-list {
+  @apply top-32;
+  position: sticky !important;
+}
+.product-details ul.react-multi-carousel-track {
+  @apply mb-16 md:mb-40;
+}
+.product-details button.react-multiple-carousel__arrow {
+  @apply bg-light-brown hover:bg-dark-brown;
+}
+.product-details ul.react-multi-carousel-dot-list {
+  @apply px-2.5;
+}
