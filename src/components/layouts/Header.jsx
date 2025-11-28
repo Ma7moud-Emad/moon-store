@@ -28,6 +28,8 @@ export default function Header() {
 
   const decoded = token && jwtDecode(token);
 
+  const tokenExpiration = token && decoded?.exp * 1000;
+
   const { data } = useProducts({ limit: 100 });
 
   const handleLogout = () => {
@@ -52,6 +54,12 @@ export default function Header() {
       })
     );
   };
+
+  setInterval(() => {
+    if (Date.now() >= tokenExpiration) {
+      handleLogout();
+    }
+  }, 60000);
 
   return (
     <>
@@ -86,10 +94,7 @@ export default function Header() {
               </button>
             </div>
             {token ? (
-              <UlIcons
-                btnClicked={handleLogout}
-                letter={token && decoded.name[0]}
-              />
+              <UlIcons btnClicked={handleLogout} letter={decoded.name[0]} />
             ) : (
               <BreButton
                 title="sign in"
