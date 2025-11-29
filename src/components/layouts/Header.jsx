@@ -25,11 +25,7 @@ export default function Header() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const token = localStorage.getItem("userToken");
-
-  const decoded = token && jwtDecode(token);
-
-  const tokenExpiration = token && decoded?.exp * 1000;
-
+  
   const { data } = useProducts({ limit: 100 });
 
   const handleLogout = () => {
@@ -55,11 +51,17 @@ export default function Header() {
     );
   };
 
-  setInterval(() => {
+  if (token) {
+  const decoded = jwtDecode(token);
+  const tokenExpiration = decoded?.exp * 1000;
+
+  const intervalId = setInterval(() => {
     if (Date.now() >= tokenExpiration) {
       handleLogout();
+      clearInterval(intervalId); 
     }
-  }, 60000);
+  }, 60000); 
+}
 
   return (
     <>
