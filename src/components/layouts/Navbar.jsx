@@ -44,8 +44,9 @@ export default function Navbar({ show, setShow }) {
 
 // eslint-disable-next-line no-unused-vars
 function Item({ path, Icon, title, show, setShow }) {
+    const token = useSelector((state) => state.user.token);
   return (
-    <li className="w-1/5 ">
+    <li className={`${token?"w-1/5":"w-1/4"}`}>
       {path ? (
         <NavLink
           to={path}
