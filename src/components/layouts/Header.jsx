@@ -67,7 +67,7 @@ export default function Header() {
   return (
     <>
       <header className="shadow-header bg-white fixed w-full top-0 right-0 z-50">
-        <div className="flex items-center gap-10 sm:gap-15 md:gap-20 p-2.5">
+        <div className="flex items-center justify-between sm:gap-15 md:gap-20 p-2.5">
           <Link to="/" className="flex gap-2 items-center">
             <img src={icon} alt="icon-logo" className="w-10" />
             <img src={logo} alt="logo" className="hidden md:block w-32" />
