@@ -26,7 +26,7 @@ export default function Header() {
 
   const token = localStorage.getItem("userToken");
 
-  const decoded = jwtDecode(token);
+  const decoded = token && jwtDecode(token);
   
   const { data } = useProducts({ limit: 100 });
 
