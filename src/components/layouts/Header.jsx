@@ -73,7 +73,7 @@ export default function Header() {
             <img src={logo} alt="logo" className="hidden md:block w-32" />
           </Link>
           <form
-            className="w-24 sm:flex-1 flex items-center gap-20"
+            className="w-55 sm:flex-1 flex items-center gap-20"
             onSubmit={(e) => e.preventDefault()}
           >
             <div className="border border-neutral-700 flex items-center rounded-2xl flex-1">
@@ -81,7 +81,7 @@ export default function Header() {
                 type="text"
                 name="search"
                 placeholder="Search Products..."
-                className="w-fit outline-0 px-4 py-1 border-r border-r-neutral-700 flex-1 text-neutral-700 placeholder:text-neutral-700"
+                className="w-full sm:w-fit outline-0 px-4 py-1 border-r border-r-neutral-700 flex-1 text-neutral-700 placeholder:text-neutral-700"
                 value={searchTerm}
                 onChange={(e) => {
                   const term = e.target.value;
