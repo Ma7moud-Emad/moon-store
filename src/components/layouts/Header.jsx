@@ -25,6 +25,8 @@ export default function Header() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const token = localStorage.getItem("userToken");
+
+  const decoded = jwtDecode(token);
   
   const { data } = useProducts({ limit: 100 });
 
@@ -52,7 +54,6 @@ export default function Header() {
   };
 
   if (token) {
-  const decoded = jwtDecode(token);
   const tokenExpiration = decoded?.exp * 1000;
 
   const intervalId = setInterval(() => {
