@@ -38,6 +38,11 @@ export default function MoreMenu({ show }) {
               <FiLogOut className="text-xl" />
             </button>
           </li>
+          <li className="border-b p-1 rounded-md hover:bg-neutral-100 hover:text-neutral-800 cursor-pointer mb-2">
+            <Link to="/brands" className="block">
+              brands
+            </Link>
+          </li>
           <li className="border-b p-1 rounded-md hover:bg-neutral-100 hover:text-neutral-800 cursor-pointer">
             <Link to="/allorders" className="block">
               orders
