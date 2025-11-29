@@ -10,6 +10,8 @@ import {
   FiShoppingCart,
 } from "react-icons/fi";
 
+import { BiCategory } from "react-icons/bi";
+
 export default function Navbar({ show, setShow }) {
   const token = useSelector((state) => state.user.token);
 
@@ -25,8 +27,7 @@ export default function Navbar({ show, setShow }) {
           </>
         ) : (
           <>
-            <Item path="/categories" Icon={FiHeart} title="categories" />
-            <Item path="/brands" Icon={FiHeart} title="brands" />
+            <Item path="/categories" Icon={BiCategory} title="categories" />
           </>
         )}
 
