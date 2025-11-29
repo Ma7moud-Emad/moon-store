@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 import {
   FiBox,
   FiHeart,
@@ -9,13 +11,25 @@ import {
 } from "react-icons/fi";
 
 export default function Navbar({ show, setShow }) {
+  const token = useSelector((state) => state.user.token);
+
   return (
     <nav className="w-full fixed bottom-0 left-0 z-50 px-2 sm:hidden bg-white shadow-navbar">
       <ul className="flex items-center capitalize">
         <Item path="/" Icon={FiHome} title="home" />
         <Item path="/products" Icon={FiBox} title="products" />
-        <Item path="/cart" Icon={FiShoppingCart} title="cart" />
-        <Item path="/wishlist" Icon={FiHeart} title="wishlist" />
+        {token ? (
+          <>
+            <Item path="/cart" Icon={FiShoppingCart} title="cart" />
+            <Item path="/wishlist" Icon={FiHeart} title="wishlist" />
+          </>
+        ) : (
+          <>
+            <Item path="/categories" Icon={FiHeart} title="categories" />
+            <Item path="/brands" Icon={FiHeart} title="brands" />
+          </>
+        )}
+
         <Item
           Icon={FiMoreHorizontal}
           title="more"
