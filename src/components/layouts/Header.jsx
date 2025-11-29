@@ -73,7 +73,7 @@ export default function Header() {
             <img src={logo} alt="logo" className="hidden md:block w-32" />
           </Link>
           <form
-            className="flex-1 flex items-center gap-20"
+            className="w-24 sm:flex-1 flex items-center gap-20"
             onSubmit={(e) => e.preventDefault()}
           >
             <div className="border border-neutral-700 flex items-center rounded-2xl flex-1">
